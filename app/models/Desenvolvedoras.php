@@ -33,9 +33,14 @@ class Desenvolvedoras
         return new self($novoId, $dados['nome'], $dados['pais_origem'], $dados['ano_fundacao']);
     }
 
-    public static function ShowAllDesenvolvedoras()
+    public static function readAllDesenvolvedoras()
     {
         $conn = Database::conection();
-        $sql = "SELECT * FROM desenvolvedoras";
+        $sql = "SELECT id, nome, pais_origem, ano_fundacao FROM desenvolvedoras";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $desenvolvedoras = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $desenvolvedoras;
     }
 }

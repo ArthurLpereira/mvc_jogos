@@ -15,6 +15,13 @@ if ($request_uri == '/index.php') {
     $controller->ShowFormCreateDesenvolvedora();
 } elseif ($request_uri == "/desenvolvedora/criar" && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $controller->CreateDesenvolvedora();
-} else {
+} elseif($request_uri == '/desenvolvedora/lista'){
+    $controller->ShowAllDesenvolvedoras();
+}elseif(){
+
+}elseif(){
+    
+}
+else {
     include "./falback.php";
 }

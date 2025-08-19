@@ -28,4 +28,13 @@ class desenvolvedorasController
             echo "<h3>Algo deu errado no cadastro</h3>";
         }
     }
+
+    public function ShowAllDesenvolvedoras()
+    {
+        // CORREÇÃO: Chama o método estático do Model corretamente
+        $desenvolvedoras = Desenvolvedoras::readAllDesenvolvedoras();
+
+        // Verifique a extensão correta do seu arquivo de listagem
+        include "./app/views/desenvolvedoras/listAllDesenvolvedoras.php";
+    }
 }
